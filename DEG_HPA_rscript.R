@@ -47,7 +47,7 @@ lens <- sum(width(reduce(ebg)))
 lens <- lens/1000
 
 rpk <- assay(se)/lens
-tpm <- as.data.frame(round(rpk/colSums(rpk)*1000000,1))
+tpm <- as.data.frame(round(t(t(rpk)/colSums(rpk))*1000000,1))
 tpm$Gene <- mapIds(org.Hs.eg.db,
                         keys=row.names(tpm),
                         column="SYMBOL",
